@@ -3652,6 +3652,22 @@
         source:[ "/12753/list.htm",
           "/" ],
         target:"/ecust/yjs" } ] },
+  "eet-china.com":{ _name:"电子工程专辑",
+    ".":[ { title:"芯语",
+        docs:"https://docs.rsshub.app/new-media.html#dian-zi-gong-cheng-zhuan-ji-xin-yu",
+        source:[ "/mp",
+          "/" ],
+        target:(params, url) => {
+                    url = new URL(url);
+                    const path = url.href.match(/\.com\/mp(.*?)/)[1];
+
+                    return `/eet-china/mp${path ? `/${path}` : ''}`;
+                } },
+      { title:"芯语 - 标签",
+        docs:"https://docs.rsshub.app/new-media.html#dian-zi-gong-cheng-zhuan-ji-xin-yu-biao-qian",
+        source:[ "/mp/tags/:id",
+          "/" ],
+        target:"/eet-china/mp/tags/:id" } ] },
   "elasticsearch.cn":{ _name:"Elastic 中文社区",
     ".":[ { title:"发现",
         docs:"https://docs.rsshub.app/bbs.html#elastic-zhong-wen-she-qu-fa-xian",
@@ -13384,11 +13400,13 @@
         target:"/xueqiu/column/:id" },
       { title:"组合最新调仓信息",
         docs:"https://docs.rsshub.app/finance.html#xue-qiu",
-        source:[ "/p/:id" ],
+        source:[ "/P/:id",
+          "/p/:id" ],
         target:"/xueqiu/snb/:id" },
       { title:"股票信息",
         docs:"https://docs.rsshub.app/finance.html#xue-qiu",
-        source:[ "/S/:id" ],
+        source:[ "/S/:id",
+          "/s/:id" ],
         target:"/xueqiu/stock_info/:id" },
       { title:"股票评论",
         docs:"https://docs.rsshub.app/finance.html#xue-qiu",
